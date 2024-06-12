@@ -1,0 +1,26 @@
+from textblob import TextBlob
+
+# Function to get the sentiment of a text
+def get_sentiment(text):
+    blob = TextBlob(text)
+    # Determine the polarity of the text
+    sentiment_polarity = blob.sentiment.polarity
+    # Determine the sentiment
+    if sentiment_polarity > 0:
+        return "Positive"
+    elif sentiment_polarity < 0:
+        return "Negative"
+    else:
+        return "Neutral"
+
+# Sample text for sentiment analysis
+text_samples = [
+    "I love this product! It's absolutely amazing.",
+    "This is the worst experience I've ever had.",
+    "The movie was okay, not too bad but not great either.",
+]
+
+# Analyze the sentiment of each text sample
+for text in text_samples:
+    sentiment = get_sentiment(text)
+    print(f"Text: {text}\nSentiment: {sentiment}\n")
